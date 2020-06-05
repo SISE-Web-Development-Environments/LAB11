@@ -2,6 +2,23 @@
 
 # ברוכים הבאים למעבדה השנייה ב Vue.js !!! <img src="src/assets/logo.png" width="50" height="43.3" alt="Vue.js Logo">
 
+## הכנה
+
+עבור המעבדה הזאת אני מבקש ממכם:
+
+1. 
+2. לייבא את הקוד [מgithub](https://github.com/SISE-Web-Development-Environments/LAB11)
+3. להוריד את התוספים הבאים לvscode:
+   - Prettier - Code formatter
+   - Vetur
+   - vue - של (jcbuisson.vue)
+   - Vue 2 Snippets
+   - Vue VSCode Snippets
+   - Vue Peek
+4. לפתוח את [הדוקומנטציה של Vue](https://vuejs.org/v2/guide/)
+5. לפתוח את [מסמך של צורת הכתיבה הנכונה של Vue](https://vuejs.org/v2/style-guide)
+
+
 ## מבוא
 
 במעבדה הזאת נדבר על קומפוננטות ואיך נשתמש בaxios כדי לקבל מידע מהשרת שלנו ולהציג אותו בקומפוננטה מתאימה.
@@ -175,7 +192,9 @@ fileName.vue :
 
 ## **_props של קומפוננטה_**
 
-כאשר אנחנו רוצים להעביר מידע לChild Component שניצור, נצהיר בקומפוננטה בתוך שזה props איזה שדות הקומפוננטה יכול לקבל ומאיזה type.
+
+
+כאשר אנחנו רוצים להעביר מידע לChild Component שניצור, נצהיר בקומפוננטה בתוך props איזה שדות הקומפוננטה יכול לקבל ומאיזה type.
 
 אותם שדות יהיו לנו חלק מהשדות של האובייקט כמו השדות של data.
 
