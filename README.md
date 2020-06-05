@@ -26,7 +26,7 @@
 <div id="import" dir="ltr" style="padding-left:15%;">
 
 ```javascript
-import Vue from 'vue'
+import Vue from "vue";
 ```
 
 </div>
@@ -43,7 +43,7 @@ import Vue from 'vue'
 
 <div id="import" dir="ltr" style="padding-left:15%;">
 
-template:
+In template:
 
 ```html
 <div id="components-demo">
@@ -53,7 +53,7 @@ template:
 </div>
 ```
 
-component and Vue object:
+In logic section (javascript code):
 
 ```javascript
 // Define a new component called buttonCounter
@@ -87,11 +87,13 @@ new Vue({ el: "#components-demo" });
 
 <!-- No build step restricts us to HTML and ES5 JavaScript, rather than preprocessors like Pug (formerly Jade) and Babel -->
 
-הדרך השניה שבה נשתמש כדי להגדיר קומפוננטה היא בתוך קובץ נפרד שהוא רשום בפורמט **_vue._**
+**הדרך השניה שבה נשתמש כדי להגדיר קומפוננטה היא בתוך קובץ נפרד שהוא רשום בפורמט _vue._ (זאת הדרך שנשתמש בה במעבדה הזאת).**
 
 הקובץ הזה יהיה רשום בצורה הבאה:
 
 <div id="import" dir="ltr" style="padding-left:15%;">
+
+fileName.vue :
 
 ```html
 <template>
@@ -124,7 +126,7 @@ new Vue({ el: "#components-demo" });
 
 > מכיוון שאנחנו הורדנו את vue-loader כמודול עם שאר המודולים בהתחלה אנחנו יכולים לייבא את החבילה **_בלי הצהרה שאנחנו משתמשים בvue-loader._**
 
-כאשר אנחנו משתמשים מתוך אובייקט Vue בקומפוננטה נוכל לאמר מבחינה היררכית שאותה קומפוננטה היא בעצם **child** שלנו (Child Component).
+כאשר אנחנו משתמשים מתוך אובייקט Vue בקומפוננטה נוכל לאמר מבחינה היררכית שאותה קומפוננטה היא בעצם **child** של אותו אובייקט (Child Component).
 
 בכל פרויקט Vue יהיה לנו את האובייקט הראשי שלנו שלרוב יהיה מוגדר בקובץ **App.vue:**
 
