@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: "button-counter",
+  name: "buttonCounter",
   data: function() {
     return {
       count: 0
@@ -12,4 +12,3 @@ export default {
   }
 };
 </script>
-

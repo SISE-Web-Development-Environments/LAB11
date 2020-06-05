@@ -37,10 +37,9 @@ npm i vue
 
 ## **_החלוקה של הקבצים ומה המשמעות בקצרה של כל קובץ_**
 
-
 ## **_קומפוננטה_**
 
-קומפוננטות הם אובייקטיי Vue עם שם שניתן לעשות בהם שימוש חוזר - יותר מפעם אחת.
+קומפוננטה היא אובייקט Vue עם שם שניתן לעשות בה שימוש חוזר.
 
 <div id="import" dir="ltr" style="padding-left:15%;">
 
@@ -48,17 +47,17 @@ template:
 
 ```html
 <div id="components-demo">
-  <button-counter></button-counter>
+  <buttonCounter></buttonCounter>
   <!-- can reuse -->
-  <button-counter></button-counter>
+  <buttonCounter></buttonCounter>
 </div>
 ```
 
 component and Vue object:
 
 ```javascript
-// Define a new component called button-counter
-Vue.component("button-counter", {
+// Define a new component called buttonCounter
+Vue.component("buttonCounter", {
   data: function() {
     return {
       count: 0
@@ -88,7 +87,7 @@ new Vue({ el: "#components-demo" });
 
 <!-- No build step restricts us to HTML and ES5 JavaScript, rather than preprocessors like Pug (formerly Jade) and Babel -->
 
-אז הדרך שבה נגדיר קומפוננטה היא בתוך קובץ נפרד שהוא רשום בפורמט **_vue._**
+הדרך השניה שבה נשתמש כדי להגדיר קומפוננטה היא בתוך קובץ נפרד שהוא רשום בפורמט **_vue._**
 
 הקובץ הזה יהיה רשום בצורה הבאה:
 
@@ -117,16 +116,17 @@ new Vue({ el: "#components-demo" });
 
 </div>
 
-> *טיפ לכתיבה נכונה: את השם של הקומפוננטה נרשום בcammelCase - אות ראשונה קטנה ואחר כך כל מילה מתחילה באות גדולה*
+> _טיפ לכתיבה נכונה: את השם של הקומפוננטה נרשום בcammelCase - אות ראשונה קטנה ואחר כך כל מילה מתחילה באות גדולה_
 
-**[קישור לדוגמאת הקוד](src/components/button-counter.vue)**
-
+**[קישור לדוגמאת הקוד](src/components/buttonCounter.vue)**
 
 את הקומפוננטה שהגדרנו בקובץ נייבא באמצעות שימוש בvue-loader.
 
-> מכיוון שאנחנו הורדנו את vue-loader כמודול עם שאר המודולים בהתחלה אנחנו יכולים לייבא את החבילה ***בלי הצהרה שאנחנו משתמשים בvue-loader.***
+> מכיוון שאנחנו הורדנו את vue-loader כמודול עם שאר המודולים בהתחלה אנחנו יכולים לייבא את החבילה **_בלי הצהרה שאנחנו משתמשים בvue-loader._**
 
-בכל פרויקט Vue יהיה לנו את האובייקט הראשי שלנו שלרוב יהיה מוגדר בקובץ **App.vue:** 
+כאשר אנחנו משתמשים מתוך אובייקט Vue בקומפוננטה נוכל לאמר מבחינה היררכית שאותה קומפוננטה היא בעצם **child** שלנו (Child Component).
+
+בכל פרויקט Vue יהיה לנו את האובייקט הראשי שלנו שלרוב יהיה מוגדר בקובץ **App.vue:**
 
 <div id="import" dir="ltr" style="padding-left:15%;">
 
@@ -155,11 +155,27 @@ new Vue({ el: "#components-demo" });
 
 **[קישור לדוגמאת הקוד](src/App.vue)**
 
-## <span id="task2" style="color:green;"> <-- משימה 2 --> </span>
+> קומפוננטות שהתוכן שלהם הוא עמוד כמו עמוד ראשי או עמוד הרשמה נרשום בתוך תיקייה בשם pages.
+>
+> > בקומפוננטות אלה בדרך כלל נשתמש פעם אחת
 
-**_ליצור קומפוננטה בסיסית שמכילה רק string ולייבא אותה_**
+> את שאר הקומפוננטות כמו קומפוננטת תצוגה מקדימה נרשום בתיקיית components.
+>
+> > בקומפוננטות אלה בדרך כלל נשתמש יותר מפעם אחת (לא תמיד)
+
+## <span id="task1" style="color:green;"> <-- משימה 1 --> </span>
+
+**המשימה הראשונה שלכם היא ליצור שני קומפוננטות:**
+
+- קומפוננטה של תצוגה מקדימה - שכרגע תכיל את הטקסט "recipe preview".
+
+- קומפוננטה של עמוד ראשי - שתשתמש בקומפוננטה של תצוגה מקדימה (כרגע נתחיל מלהכיל מופע אחד שלה).
 
 ## **_props של קומפוננטה_**
+
+כאשר אנחנו רוצים להעביר מידע לChild Component שניצור, נצהיר בקומפוננטה בתוך שזה props איזה שדות הקומפוננטה יכול לקבל ומאיזה type.
+
+אותם שדות יהיו לנו חלק מהשדות של האובייקט כמו השדות של data.
 
 ## <span id="task3" style="color:green;"> <-- משימה 3 --> </span>
 
@@ -187,6 +203,8 @@ data(){
 }
 ```
 
+</div>
+
 מאפשר לנו ליצור one-way binding בין משתנה של אובייקט Vue ל attribute
 
 צורת הכתיבה תיהיה:
@@ -194,24 +212,40 @@ data(){
 <div dir="ltr" style="padding-left:15%;">
 
 ```
-v-bind:AttributeName="expression"
-
-או
-
-:AttributeName="expression"
+v-bind:AttributeName="variable"
 ```
 
 </div>
 
+בצורה מקוצרת במקום לרשום **:v-bind** , נרשום **:**
+
+<div dir="ltr" style="padding-left:15%;">
+
+```html
+<button :disabled="flag">Click me!</button>
+```
+
 </div>
 
-**[קישור לדוגמאת הקוד השלישית](examples/3_data_bindings.html)**
+**[קישור לדוגמאת הקוד](src/components/disableButton.vue)**
 
 [עוד על v-bind](https://vuejs.org/v2/api/#v-bind)
 
-איך השתמשנו שדיברנו על key ועל value בselect
+כאשר דיברנו בסוף המעבדה הקודמת על v-for, דיברנו שיש אפשרות להצמיד לelement באיטרציה key שייחד אותו משאר האלמנטים. את הkey הגדרנו באמצעות v-bind בצורה הזאת:
+
+<div dir="ltr" style="padding-left:15%;">
+
+```html
+<div v-for="m in messages" :key="m.time">
+  {{ message }}
+</div>
+```
+
+</div>
 
 ## <span id="task4" style="color:green;"> <-- משימה 4 --> </span>
+
+במעבדה הקודמת דיברנו ש
 
 **_מה שהיה בתרגול קודם input של country יהפוך להיות select_**
 

@@ -4,18 +4,21 @@
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <!-- <RegisterPage/> -->
     <buttonCounter></buttonCounter>
+    <disableButton></disableButton>
   </div>
 </template>
 
 <script>
 // import HelloWorld from './pages/HelloWorld.vue'
 // import RegisterPage from './pages/RegisterPage'
-import buttonCounter from "./components/button-counter";
+import buttonCounter from "./components/buttonCounter";
+import disableButton from "./components/disableButton";
 
 export default {
   name: "App",
   components: {
-    buttonCounter
+    buttonCounter,
+    disableButton
   }
 };
 </script>
