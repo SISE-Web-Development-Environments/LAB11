@@ -3,28 +3,28 @@
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <!-- <RegisterPage/> -->
-    <buttonCounter></buttonCounter>
-    <disableButton></disableButton>
-    <messageLine sender="Eran" message="hello everyone!!!"></messageLine>
-    <messagesPage></messagesPage>
+    <ButtonCounter></ButtonCounter>
+    <DisableButton></DisableButton>
+    <MessageLine sender="Eran" message="hello everyone!!!"></MessageLine>
+    <MessagesPage />
   </div>
 </template>
 
 <script>
 // import HelloWorld from './pages/HelloWorld.vue'
 // import RegisterPage from './pages/RegisterPage'
-import messagesPage from "./pages/messagesPage";
-import buttonCounter from "./components/buttonCounter";
-import disableButton from "./components/disableButton";
-import messageLine from "./components/messageLine";
+import MessagesPage from "./pages/MessagesPage";
+import ButtonCounter from "./components/ButtonCounter";
+import DisableButton from "./components/DisableButton";
+import MessageLine from "./components/MessageLine";
 
 export default {
   name: "App",
   components: {
-    buttonCounter,
-    disableButton,
-    messageLine,
-    messagesPage
+    ButtonCounter,
+    DisableButton,
+    MessageLine,
+    MessagesPage
   }
 };
 </script>

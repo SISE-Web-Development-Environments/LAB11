@@ -28,7 +28,7 @@
 
 לעומת מעבדה קודמת שבה דיברנו על עמוד הרשמה, היום נדבר על העמוד הראשי שבו נציג מתכונים רנדומלים שנקבל מהשרת.
 
-הקבצים שאיתם תעבדו במעבדה הם [mainPage.vue](src/pages/mainPage.vue) ו [recipePreview.vue](src/components/recipePreview.vue) עבור העמוד הראשי והתצוגה המקדימה (בהתאמה).
+הקבצים שאיתם תעבדו במעבדה הם [MainPage.vue](src/pages/MainPage.vue) ו [RecipePreview.vue](src/components/RecipePreview.vue) עבור העמוד הראשי והתצוגה המקדימה (בהתאמה).
 
 ## צורת הייבוא של Vue
 
@@ -70,13 +70,15 @@ Vue-cli.
 
 קומפוננטה היא אובייקט Vue עם שם שניתן לעשות בה שימוש חוזר.
 
+באמצעות שימוש בקומפוננטות, במקום שכל הקוד והתצוגה יהיו בקובץ אחד (כמו שראינו במעבדה הקודמת), כעת אנחנו יכולים ליצור הפרדה כך שהאובייקט הראשי יכול להכיל אוסף קומפוננטות שכל אחת יכולה גם היא להכיל אוסף קומפוננטות.
+
 <div id="import" dir="ltr" style="padding-left:15%;">
 
 In logic section (javascript code):
 
 ```javascript
-// Define a new component called buttonCounter
-Vue.component("buttonCounter", {
+// Define a new component called ButtonCounter
+Vue.component("ButtonCounter", {
   data: function() {
     return {
       count: 0
@@ -94,15 +96,15 @@ In template:
 
 ```html
 <div id="components-demo">
-  <buttonCounter></buttonCounter>
+  <ButtonCounter></ButtonCounter>
   <!-- can reuse -->
-  <buttonCounter></buttonCounter>
+  <ButtonCounter></ButtonCounter>
 </div>
 ```
 
 </div>
 
-כאשר אנחנו מגדירים בצורה הזאת את הקומפוננטה, היא נוספת לנו בצורה גלובלית לספרייה ואין צורך לציין שאנחנו משתמשים בה באובייקט שלנו.
+כאשר אנחנו מגדירים בצורה הזאת את הקומפוננטה, היא נוספת לנו בצורה גלובלית ואין צורך לציין שאנחנו משתמשים בה באובייקט שלנו.
 
 עבודה עם `Vue.component` טובה כשאנחנו מדברים על פרויקט בגודל קטן~בינוני שמשתמש בjavascript רק כדי לתמוך מעט בחלק מהתצוגות.
 
@@ -156,7 +158,7 @@ In template:
 
 </i>
 
-**[קישור לדוגמאת הקוד](src/components/buttonCounter.vue)**
+**[קישור לדוגמאת הקוד](src/components/ButtonCounter.vue)**
 
 את הקומפוננטה שהגדרנו בקובץ נייבא באמצעות import בזכות ההגדרות שvue-cli הגדיר לנו עבור הרצה של הפרויקט.
 
@@ -171,17 +173,17 @@ In template:
 ```html
 <template>
   <div id="app">
-    <buttonCounter />
+    <ButtonCounter />
   </div>
 </template>
 
 <script>
-  import buttonCounter from "./components/buttonCounter"; // import component from the components directory
+  import ButtonCounter from "./components/ButtonCounter"; // import component from the components directory
 
   export default {
     name: "App",
     components: {
-      buttonCounter
+      ButtonCounter
     }
   };
 </script>
@@ -216,7 +218,8 @@ In template:
   - את הקומפוננטות האלה נרשום בתוך תיקייה בשם **components**.
 
 &nbsp;
-<!-- 
+
+<!--
 1. החלוקה השניה תיהיה בין:
 
 - **קומפוננטות גלובאליות:** בהן נרצה לעשות שימוש חוזר לאורך כל האפליקציה - בעמודים שונים - לדוגמא: תצוגה מקדימה של מתכון
@@ -253,7 +256,7 @@ export default {
 Inside Parent's template:
 
 ```html
-<messageLine message="hello everyone!!!" />
+<MessageLine message="hello everyone!!!" />
 ```
 
 </div>
@@ -274,8 +277,9 @@ Inside Parent's template:
 - שם התכונה
 - הסוג
 - האם הוא הכרחי
+
   - אם הוא לא הכרחי, יש לציין פונקציה שמחזירה את הערך הדיפולטי שלו
-  
+
 <div dir="ltr" style="padding-left:15%;">
   
   ```javascript
@@ -288,21 +292,31 @@ Inside Parent's template:
 
   </div>
 
-**_שימו לב - במידה וברצנוכם להעביר כמות גדולה של שדות, יש לשקול שליחה של אובייקט במקום שדות נפרדים._**
+**_שימו לב - במידה וברצנוכם להעביר כמות גדולה של שדות, יש לשקול שליחה של אובייקט במקום שדות נפרדים (אובייקט הוא משתנה מסוג Object)._**
+
+[עוד על props](https://vuejs.org/v2/guide/components-props.html)
 
 &nbsp;
 
 ## <span id="task2" style="color:green;"> <-- משימה 2 --> </span>
 
-**במשימה זו נגדיר את כל הפרמטרים שאנחנו מצפים לקבל בקומפוננטה של תצוגה מקדימה שהם:**
+<b>
 
-- **הid של המתכון**
-- **השם של המתכון**
-- **כמות הזמן שלוקח כל תהליך ההכנה**
-- **קישור לתמונה של המתכון**
-- **כמות הלייקים**
+במשימה זו נגדיר את כל הפרמטרים שאנחנו מצפים לקבל בקומפוננטה של תצוגה מקדימה שהם:
 
-בעבודה תצטרכו גם להתייחס למידע ספציפי למשתמש כמו האם המתכון הוא favorite שלו או האם הוא צפה בו.
+- הid של המתכון - חובה
+- השם של המתכון - חובה
+- כמות הזמן שלוקח כל תהליך ההכנה - חובה
+- קישור לתמונה של המתכון - חובה
+- כמות הלייקים - לא חובה (דיפולטית יחזיר undefined)
+
+_לצורך ההתנסות, במעבדה תרשמו את כל השדות בנפרד._
+
+_בעבודה תצטרכו גם להתייחס למידע ספציפי למשתמש כמו האם המתכון הוא favorite שלו או האם הוא צפה בו._
+
+</b>
+
+&nbsp;
 
 ## **_v-bind_**
 
@@ -350,10 +364,10 @@ v-bind:AttributeName="variable"
 
 </div>
 
-**[קישור לדוגמאת הקוד](src/components/disableButton.vue)**
+**[קישור לדוגמאת הקוד](src/components/DisableButton.vue)**
 
-כאשר דיברנו בסוף המעבדה הקודמת על v-for, דיברנו שיש אפשרות להצמיד לelement באיטרציה property בשם key שייחד אותו משאר האלמנטים.\
-הkey בעצם binded לפרמטר של המשתנה שעליו אנחנו עוברים ולכן נרשום אותו בצורה הבאה:
+> _**תזכורת:** כאשר דיברנו בסוף המעבדה הקודמת על v-for, דיברנו שיש אפשרות להצמיד לelement באיטרציה property בשם key שייחד אותו משאר האלמנטים.\
+> הkey בעצם binded לפרמטר של המשתנה שעליו אנחנו עוברים ולכן נרשום אותו בצורה הבאה:_
 
 <div dir="ltr" style="padding-left:15%;">
 
@@ -371,9 +385,13 @@ v-bind:AttributeName="variable"
 
 ## <span id="task3" style="color:green;"> <-- משימה 3 --> </span>
 
-**כעת עם מה שלמדנו נוכל ליצור מעבר על רשימת המתכונים וליצור עבור כל אחד אלמנט מסוג קומפוננטת התצוגה המוקדמת.**
+<b>
 
-**לשם כך אתם צריכים רשימת מתכונים בעמוד הראשי שלנו (נתחיל מרשימה שאנחנו ניצור ידנית)**
+כעת עם מה שלמדנו נוכל ליצור מעבר על רשימת המתכונים וליצור עבור כל אחד אלמנט מסוג קומפוננטת התצוגה המוקדמת.
+
+לשם כך אתם צריכים:
+
+1. רשימת מתכונים בעמוד הראשי שלנו (נתחיל מרשימה שאנחנו ניצור ידנית)
 
 <div dir="ltr" style="padding-left:15%;">
 
@@ -398,13 +416,89 @@ recipes: [
 
 </div>
 
-## **_axios_**
+2. להוסיף את הdirective שלמדנו במעבדה קודמת v-for על מנת ליצור את קומפוננטת התצוגה המקדימה עבור כל מתכון ברשימה.
 
-בregister של מעבדה קודמת ואיך נשלח ונקבל ונטפל בבקשה
+> #הערה: כאשר אתם עושים v-for לקומפוננטה, אתם צריכים לציין key
+> (במקרה הזה id)
+
+</b>
+
+&nbsp;
+
+## **_created (and) beforeDestroy_**
+
+במחזור החיים של אובייקט Vue, ישנם שני eventים שמעניינים אותנו:
+
+> - **created:** מסמל את הרגע בו האובייקט נוצר ואנחנו יכולים להריץ קוד
+>   &#09;  
+>   **<span style="color:green;">מתי נשתמש --> שליחת בקשה לשרת והשמת התוצאה למשתנה של האובייקט ברגע שהיא חוזרת</span>**
+
+> - **beforeDestroy:** מסמל את הרגע לפני שהאובייקט נהרס ומאפשר לנו להריץ קוד
+>   &#09;  
+>   **<span style="color:green;">מתי נשתמש --> ניקוי נתונים שאנחנו לא צריכים מהזיכרון</span>**
+
+**[קישור לדוגמאת קוד](examples/2_vue_object_properties.html)**
+
+[link to life cycle image](https://vuejs.org/v2/guide/instance.html#Lifecycle-Diagram)
+
+&nbsp;
 
 ## <span id="task5" style="color:green;"> <-- משימה 5 --> </span>
 
-**_להוסיף את הבקשה שפונה לשרת שלהם/ לשרת בסיס שלי_**
+<b>
+
+כעת עליכם להוסיף לקובץ [MainPage.vue](src/pages/MainPage.vue) את הפונקציה created שתכיל קריאה לconsole.log עם הערה לבחירתכם.
+
+</b>
+
+&nbsp;
+
+## **_axios_**
+
+axios היא ספרייה שהשתמשנו בה בצד השרת כדי ליצור בקשות לapi החיצוני של spooncular.
+
+כעת בצד הלקוח נשתמש בה על מנת לפנות לשרת שיצרנו בעבודה 3.2 על מנת ליצור בקשות כמו קבלת מתכונים רנדומלים או בקשות כמו בקשת התחברות והרשמה.
+
+&nbsp;
+
+## <span id="task5" style="color:green;"> <-- משימה 5 --> </span>
+
+<b>
+
+המשימה שלכם כעת היא להחליף את המתכונים שהגדרנו ממקודם למתכונים רנדומלים שנקבל בעת כניסה לדף הראשי.
+
+בשביל ליישם את זה, נצטרך בפונקציה created (שייצרנו קודם) לבצע בקשה באמצעות axios לשרת שיביא לנו את המידע.
+
+בעבודה 3.3 אתם תפנו לשרת שיצרתם בעבודה 3.2, אך כעת נפנה לspooncular ישירות (מה שלא יקרה ב3.3).
+
+הפנייה תיהיה הפנייה הזאת:
+
+<div dir="ltr" style="padding-left:15%;">
+
+```javascript
+this.axios
+  .get("https://api.spoonacular.com/recipes/random", {
+    params: {
+      limitLicense: true,
+      number: 3,
+      apiKey: process.env.VUE_APP_SPOONCULAR_API_KEY
+    }
+  })
+  .then(function(response) {
+    console.log(response);
+  })
+  .catch(function(error) {
+    console.log(error);
+  });
+```
+
+</div>
+
+> כמו במעבדות של Node, כדי להגדיר
+
+</b>
+
+&nbsp;
 
 ## **_עמוד ראשי - הצגת תצוגות מקדימות של מתכונים רנדומליים_**
 

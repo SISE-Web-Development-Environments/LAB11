@@ -1,20 +1,22 @@
 <template>
-  <ol>
-    <messageLine
-      v-for="m in messages"
-      :key="m.timestamp"
-      :sender="m.sender"
-      :message="m.message"
-      :timestamp="m.timestamp"
-    ></messageLine>
-  </ol>
+  <div>
+    <ol>
+      <MessageLine
+        v-for="m in messages"
+        :key="m.timestamp"
+        :sender="m.sender"
+        :message="m.message"
+        :timestamp="m.timestamp"
+      ></MessageLine>
+    </ol>
+  </div>
 </template>
 
 <script>
-import messageLine from "../components/messageLine";
+import MessageLine from "../components/MessageLine";
 export default {
   components: {
-    messageLine
+    MessageLine
   },
   data() {
     return {

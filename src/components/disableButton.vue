@@ -1,14 +1,14 @@
 <template>
   <div>
-    <buttonCounter :disabled="flag"></buttonCounter>
+    <ButtonCounter :disabled="flag"></ButtonCounter>
   </div>
 </template>
 
 <script>
-import buttonCounter from "./buttonCounter";
+import ButtonCounter from "./ButtonCounter";
 export default {
   components: {
-    buttonCounter
+    ButtonCounter
   },
   data() {
     return {
