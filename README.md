@@ -5,24 +5,30 @@
 ## הכנה
 
 עבור המעבדה הזאת אני מבקש ממכם:
- 
+
 1. לייבא את הקוד [מgithub](https://github.com/SISE-Web-Development-Environments/LAB11)
 2. להוריד את התוספים הבאים לvscode:
+
    - Prettier - Code formatter
    - Vetur
+
+   > מומליצים בנוסף:
+
    - vue - של (jcbuisson.vue)
    - Vue 2 Snippets
    - Vue VSCode Snippets
    - Vue Peek
+
 3. לפתוח את [הדוקומנטציה של Vue](https://vuejs.org/v2/guide/)
 4. לפתוח את [מסמך של צורת הכתיבה הנכונה של Vue](https://vuejs.org/v2/style-guide)
-
 
 ## מבוא
 
 במעבדה הזאת נדבר על קומפוננטות ואיך נשתמש בaxios כדי לקבל מידע מהשרת שלנו ולהציג אותו בקומפוננטה מתאימה.
 
 לעומת מעבדה קודמת שבה דיברנו על עמוד הרשמה, היום נדבר על העמוד הראשי שבו נציג מתכונים רנדומלים שנקבל מהשרת.
+
+הקבצים שאיתם תעבדו במעבדה הם [mainPage.vue](src/pages/mainPage.vue) ו [recipePreview.vue](src/components/recipePreview.vue) עבור העמוד הראשי והתצוגה המקדימה (בהתאמה).
 
 ## צורת הייבוא של Vue
 
@@ -47,14 +53,15 @@ import Vue from "vue";
 
 </div>
 
-אם נריץ את הפקודה `vue create PROJECT_NAME` יפתח לנו הוראות שבסופם יווצר לנו template ראשוני ובנוסף יורד לנו אוטומטית כל הספריות הבסיסיות עבור הרצה של Vue באמצעות npm.
+Vue-cli ( בפירוט - Vue Command Line Interface) הוא ממשק לקונסול שנותן לנו להריץ כל מני פקודות על מנת לייצר ולנהל את פרויקט הVue שלנו.
 
-כמובן, כמו בNode, אם יבאתם את הrepository של המעבדה שבו הnode_modules לא נמצאים, יש צורך להריץ את הפעולה npm install כדי להוריד את כל המודולים שרשומים בpackage.json.
+Vue-cli מכיל את הפקודה `create` שיוצרת עבורנו פרויקט Vue חדש על פי הגדרות שנבחר ותוריד לנו את כל החבילות הדרושות לאותו פרוויקט (אותם חבילות יורדו לנו על ידי npm וישמרו בnode_modules).
 
-## **_החלוקה של הקבצים ומה המשמעות בקצרה של כל קובץ_**
+> _כמובן, כמו בNode, אם יבאתם את הrepository של המעבדה שבו הnode_modules לא נמצאים, יש צורך להריץ את הפעולה npm install כדי להוריד את כל המודולים שרשומים בpackage.json._
 
+כחלק מהפרויקט הבסיסי שלנו נוכל למצוא את הקבצים המרכזיים של הפרויקט והם:
 
-- [index.html](public/index.html) - הקובץ html הראשי שכולל את הtemplate של האובייקט Vue הראשי
+- [index.html](public/index.html) - הקובץ html הראשי שכולל את האלמנט שיהיה הtemplate של האובייקט Vue הראשי
 - [App.vue](src/App.vue) - הקובץ שמכיל את הקומפוננטה הראשית של הפרויקט
 - [main.js](src/main.js) - הקובץ שיוצר את אובייקט הVue הראשי שמקשר את index.html לApp.vue
 
@@ -63,16 +70,6 @@ import Vue from "vue";
 קומפוננטה היא אובייקט Vue עם שם שניתן לעשות בה שימוש חוזר.
 
 <div id="import" dir="ltr" style="padding-left:15%;">
-
-In template:
-
-```html
-<div id="components-demo">
-  <buttonCounter></buttonCounter>
-  <!-- can reuse -->
-  <buttonCounter></buttonCounter>
-</div>
-```
 
 In logic section (javascript code):
 
@@ -92,9 +89,19 @@ Vue.component("buttonCounter", {
 new Vue({ el: "#components-demo" });
 ```
 
+In template:
+
+```html
+<div id="components-demo">
+  <buttonCounter></buttonCounter>
+  <!-- can reuse -->
+  <buttonCounter></buttonCounter>
+</div>
+```
+
 </div>
 
-כאשר אנחנו מגדירים בצורה הזאת את הקומפוננטה, היא נוספת לנו בצורה גלובלית ואין צורך לציין שאנחנו משתמשים בה באובייקט שלנו.
+כאשר אנחנו מגדירים בצורה הזאת את הקומפוננטה, היא נוספת לנו בצורה גלובלית לספרייה ואין צורך לציין שאנחנו משתמשים בה באובייקט שלנו.
 
 עבודה עם `Vue.component` טובה כשאנחנו מדברים על פרויקט בגודל קטן~בינוני שמשתמש בjavascript רק כדי לתמוך מעט בחלק מהתצוגות.
 
@@ -176,35 +183,83 @@ new Vue({ el: "#components-demo" });
 
 **[קישור לדוגמאת הקוד](src/App.vue)**
 
-> קומפוננטות שהתוכן שלהם הוא עמוד כמו עמוד ראשי או עמוד הרשמה נרשום בתוך תיקייה בשם pages.
->
-> > בקומפוננטות אלה בדרך כלל נשתמש פעם אחת
+- קומפוננטות שהתוכן שלהם הוא עמוד כמו עמוד ראשי או עמוד הרשמה נרשום בתוך תיקייה בשם pages.
 
-> את שאר הקומפוננטות כמו קומפוננטת תצוגה מקדימה נרשום בתיקיית components.
->
-> > בקומפוננטות אלה בדרך כלל נשתמש יותר מפעם אחת (לא תמיד)
+  > - _שימוש **:** בקומפוננטות אלה בדרך כלל נשתמש פעם אחת_
+
+- את שאר הקומפוננטות כמו קומפוננטת תצוגה מקדימה נרשום בתיקיית components.
+
+  > - _שימוש **:** בקומפוננטות אלה בדרך כלל נשתמש יותר מפעם אחת (לא תמיד)_
 
 ## <span id="task1" style="color:green;"> <-- משימה 1 --> </span>
 
 **המשימה הראשונה שלכם היא ליצור שני קומפוננטות:**
 
-- קומפוננטה של תצוגה מקדימה - שכרגע תכיל את הטקסט "recipe preview".
+1) **קומפוננטה של תצוגה מקדימה - שכרגע תכיל את הטקסט "recipe preview".**
 
-- קומפוננטה של עמוד ראשי - שתשתמש בקומפוננטה של תצוגה מקדימה (כרגע נתחיל מלהכיל מופע אחד שלה).
+2) **קומפוננטה של עמוד ראשי - שתשתמש בקומפוננטה של תצוגה מקדימה (כרגע נתחיל מלהכיל מופע אחד שלה).**
+
+&nbsp;
 
 ## **_props של קומפוננטה_**
 
+<div dir="ltr" style="padding-left:15%;">
 
+inside Child Component logic:
 
-כאשר אנחנו רוצים להעביר מידע לChild Component שניצור, נצהיר בקומפוננטה בתוך props איזה שדות הקומפוננטה יכול לקבל ומאיזה type.
+```javascript
+export default {
+  name: "childComponent",
+  props: {
+    sender: {
+      type: String,
+      required: true
+    },
+    message: {
+      type: String,
+      required: true
+    },
+    timestamp: {
+      type: Number,
+      required: false,
+      default: () => undefined
+    }
+  }
+};
+```
+
+Inside Parent's template:
+
+```html
+<messageLine sender="Eran" message="hello everyone!!!"></messageLine>
+```
+
+</div>
+
+כאשר אנחנו רוצים להעביר מידע לChild Component שניצור, נצהיר בקומפוננטה בתוך שדה props (קיצור של properties) איזה פרמטרים הקומפוננטה יכול לקבל כתכונה.
 
 אותם שדות יהיו לנו חלק מהשדות של האובייקט כמו השדות של data.
 
-## <span id="task3" style="color:green;"> <-- משימה 3 --> </span>
+עבור כל פרמטר יש לציין:
 
-**_להגדיר את כל הprops של קומפוננטת תצוגה מקדימה_**
+- שם התכונה
+- הסוג
+- האם הוא הכרחי
+  - אם הוא לא הכרחי, יש לציין פונקציה שמחזירה את הערך הדיפולטי שלו
 
-- ## **_v-bind_**
+## <span id="task2" style="color:green;"> <-- משימה 2 --> </span>
+
+**במשימה זו נגדיר את כל הפרמטרים שאנחנו מצפים לקבל בקומפוננטה של תצוגה מקדימה שהם:**
+
+- **הid של המתכון**
+- **השם של המתכון**
+- **כמות הזמן שלוקח כל תהליך ההכנה**
+- **כמות הלייקים**
+- **קישור לתמונה של המתכון**
+
+בעבודה תצטרכו גם להתייחס למידע ספציפי למשתמש כמו האם המתכון הוא favorite שלו או האם הוא צפה בו.
+
+## **_v-bind_**
 
 <div dir="ltr" style="padding-left:15%;">
 
@@ -252,9 +307,8 @@ v-bind:AttributeName="variable"
 
 **[קישור לדוגמאת הקוד](src/components/disableButton.vue)**
 
-[עוד על v-bind](https://vuejs.org/v2/api/#v-bind)
-
-כאשר דיברנו בסוף המעבדה הקודמת על v-for, דיברנו שיש אפשרות להצמיד לelement באיטרציה key שייחד אותו משאר האלמנטים. את הkey הגדרנו באמצעות v-bind בצורה הזאת:
+כאשר דיברנו בסוף המעבדה הקודמת על v-for, דיברנו שיש אפשרות להצמיד לelement באיטרציה property בשם key שייחד אותו משאר האלמנטים.\
+הkey בעצם binded לפרמטר של המשתנה שעליו אנחנו עוברים ולכן נרשום אותו בצורה הבאה:
 
 <div dir="ltr" style="padding-left:15%;">
 
@@ -266,11 +320,16 @@ v-bind:AttributeName="variable"
 
 </div>
 
+[עוד על v-bind](https://vuejs.org/v2/api/#v-bind)
+
 ## <span id="task4" style="color:green;"> <-- משימה 4 --> </span>
 
-במעבדה הקודמת דיברנו ש
+כעת עם מה שלמדנו נוכל ליצור מעבר על רשימת המתכונים וליצור עבור כל אחד אלמנט מסוג קומפוננטת התצוגה המוקדמת.
 
-**_מה שהיה בתרגול קודם input של country יהפוך להיות select_**
+לשם כך אתם צריכים:
+
+1. ****
+
 
 ## **_axios_**
 

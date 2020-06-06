@@ -1,5 +1,8 @@
 <template>
-  <li>({{ sender }}) {{ message }} (at timestamp: {{ timestamp }})</li>
+  <li v-if="timestamp">
+    ({{ sender }}) {{ message }} (at timestamp: {{ timestamp }})
+  </li>
+  <li v-else>({{ sender }}) {{ message }}</li>
 </template>
 
 <script>
@@ -15,7 +18,8 @@ export default {
     },
     timestamp: {
       type: Number,
-      required: true
+      required: false,
+      default: () => undefined
     }
   }
 };

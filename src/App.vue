@@ -5,6 +5,7 @@
     <!-- <RegisterPage/> -->
     <buttonCounter></buttonCounter>
     <disableButton></disableButton>
+    <messageLine sender="Eran" message="hello everyone!!!"></messageLine>
     <messagesPage></messagesPage>
   </div>
 </template>
@@ -15,24 +16,24 @@
 import messagesPage from "./pages/messagesPage";
 import buttonCounter from "./components/buttonCounter";
 import disableButton from "./components/disableButton";
+import messageLine from "./components/messageLine";
 
 export default {
   name: "App",
   components: {
     buttonCounter,
     disableButton,
+    messageLine,
     messagesPage
   }
 };
 </script>
 
 <style>
-/* #app {
+#app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
-} */
+}
 </style>
