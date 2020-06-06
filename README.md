@@ -12,7 +12,7 @@
    - Prettier - Code formatter
    - Vetur
 
-   > מומליצים בנוסף:
+> מומליצים בנוסף:
 
    - vue - של (jcbuisson.vue)
    - Vue 2 Snippets
