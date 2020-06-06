@@ -5,18 +5,17 @@
 ## הכנה
 
 עבור המעבדה הזאת אני מבקש ממכם:
-
-1. 
-2. לייבא את הקוד [מgithub](https://github.com/SISE-Web-Development-Environments/LAB11)
-3. להוריד את התוספים הבאים לvscode:
+ 
+1. לייבא את הקוד [מgithub](https://github.com/SISE-Web-Development-Environments/LAB11)
+2. להוריד את התוספים הבאים לvscode:
    - Prettier - Code formatter
    - Vetur
    - vue - של (jcbuisson.vue)
    - Vue 2 Snippets
    - Vue VSCode Snippets
    - Vue Peek
-4. לפתוח את [הדוקומנטציה של Vue](https://vuejs.org/v2/guide/)
-5. לפתוח את [מסמך של צורת הכתיבה הנכונה של Vue](https://vuejs.org/v2/style-guide)
+3. לפתוח את [הדוקומנטציה של Vue](https://vuejs.org/v2/guide/)
+4. לפתוח את [מסמך של צורת הכתיבה הנכונה של Vue](https://vuejs.org/v2/style-guide)
 
 
 ## מבוא
@@ -53,6 +52,11 @@ import Vue from "vue";
 כמובן, כמו בNode, אם יבאתם את הrepository של המעבדה שבו הnode_modules לא נמצאים, יש צורך להריץ את הפעולה npm install כדי להוריד את כל המודולים שרשומים בpackage.json.
 
 ## **_החלוקה של הקבצים ומה המשמעות בקצרה של כל קובץ_**
+
+
+- [index.html](public/index.html) - הקובץ html הראשי שכולל את הtemplate של האובייקט Vue הראשי
+- [App.vue](src/App.vue) - הקובץ שמכיל את הקומפוננטה הראשית של הפרויקט
+- [main.js](src/main.js) - הקובץ שיוצר את אובייקט הVue הראשי שמקשר את index.html לApp.vue
 
 ## **_קומפוננטה_**
 
@@ -94,13 +98,11 @@ new Vue({ el: "#components-demo" });
 
 עבודה עם `Vue.component` טובה כשאנחנו מדברים על פרויקט בגודל קטן~בינוני שמשתמש בjavascript רק כדי לתמוך מעט בחלק מהתצוגות.
 
-כאשר אנחנו מדברים על פרויקט יותר מסובך שמתבסס הרבה יותר על javascript, לשיטה הזאת יש כל מני חסרונות:
+כאשר אנחנו מדברים על פרויקט יותר מסובך שמתבסס הרבה יותר על javascript, לשיטה הזאת יש כל מני חסרונות כגון:
 
 - הגדרת template בצורת מחרוזת לא נוחה לעבודה, במיוחד שהקומפוננטה יכולה להיות גדולה
 
 - בצורה כזאת אין לנו אפשרות להגדיר עיצוב באמצעות css עבור הקומפוננטה
-
-- ההגדרות הגלובליות מאלצות אותנו לתת שמות ייחודיים עבור כל קומפוננטה
 
 <!-- No build step restricts us to HTML and ES5 JavaScript, rather than preprocessors like Pug (formerly Jade) and Babel -->
 
@@ -110,7 +112,7 @@ new Vue({ el: "#components-demo" });
 
 <div id="import" dir="ltr" style="padding-left:15%;">
 
-fileName.vue :
+<b>fileName.vue :</b>
 
 ```html
 <template>
@@ -139,9 +141,9 @@ fileName.vue :
 
 **[קישור לדוגמאת הקוד](src/components/buttonCounter.vue)**
 
-את הקומפוננטה שהגדרנו בקובץ נייבא באמצעות שימוש בvue-loader.
+את הקומפוננטה שהגדרנו בקובץ נייבא באמצעות שימוש בvue-loader המאפשר לנו ליבא קבצי vue.
 
-> מכיוון שאנחנו הורדנו את vue-loader כמודול עם שאר המודולים בהתחלה אנחנו יכולים לייבא את החבילה **_בלי הצהרה שאנחנו משתמשים בvue-loader._**
+> vue-loader מורד לנו כמודול עם שאר המודולים בהתחלה והשימוש בו הוא במאחורי הקלעים כך שאנחנו יכולים לייבא קבצי vue **_בלי הצהרה שאנחנו משתמשים בvue-loader._**
 
 כאשר אנחנו משתמשים מתוך אובייקט Vue בקומפוננטה נוכל לאמר מבחינה היררכית שאותה קומפוננטה היא בעצם **child** של אותו אובייקט (Child Component).
 

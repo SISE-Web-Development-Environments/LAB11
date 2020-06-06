@@ -1,5 +1,5 @@
 <template>
-  <li>{{ sender }}) {{ message }} (at timestamp: {{ timestamp }})</li>
+  <li>({{ sender }}) {{ message }} (at timestamp: {{ timestamp }})</li>
 </template>
 
 <script>

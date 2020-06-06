@@ -5,12 +5,14 @@
     <!-- <RegisterPage/> -->
     <buttonCounter></buttonCounter>
     <disableButton></disableButton>
+    <messagesPage></messagesPage>
   </div>
 </template>
 
 <script>
 // import HelloWorld from './pages/HelloWorld.vue'
 // import RegisterPage from './pages/RegisterPage'
+import messagesPage from "./pages/messagesPage";
 import buttonCounter from "./components/buttonCounter";
 import disableButton from "./components/disableButton";
 
@@ -18,7 +20,8 @@ export default {
   name: "App",
   components: {
     buttonCounter,
-    disableButton
+    disableButton,
+    messagesPage
   }
 };
 </script>
