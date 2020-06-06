@@ -19,8 +19,10 @@
 > - Vue VSCode Snippets
 > - Vue Peek
 
-3. לפתוח את [הדוקומנטציה של Vue](https://vuejs.org/v2/guide/)
-4. לפתוח את [מסמך של צורת הכתיבה הנכונה של Vue](https://vuejs.org/v2/style-guide)
+3. להוסיף את הקובץ `env.local` לפי הדוגמא [env.local_example](.env.local_example)
+4. להריץ את הפקודה `npm install`
+5. לפתוח את [הדוקומנטציה של Vue](https://vuejs.org/v2/guide/)
+6. לפתוח את [מסמך של צורת הכתיבה הנכונה של Vue](https://vuejs.org/v2/style-guide)
 
 ## מבוא
 
@@ -453,7 +455,7 @@ _קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#ta
 
 &nbsp;
 
-## **mounted (and) beforeDestroy\_**
+## **mounted (and) beforeDestroy**
 
 במחזור החיים של אובייקט Vue, ישנם שני eventים שמעניינים אותנו:
 
