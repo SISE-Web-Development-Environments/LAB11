@@ -4,9 +4,7 @@
   "private": true,
   "scripts": {
     "serve_example": "vue-cli-service serve src/main_example.js",
-    "serve": "vue-cli-service serve src/main_copy.js",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "serve": "vue-cli-service serve src/main.js"
   },
   "dependencies": {
     "axios": "^0.19.2",
