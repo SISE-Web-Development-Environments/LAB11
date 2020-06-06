@@ -160,6 +160,8 @@ In template:
 
 **[קישור לדוגמאת הקוד](src/components/ButtonCounter.vue)**
 
+> _**טיפ:** באמצעות הextension Vetur נוכל לרשום בקובץ vue את המילה vbase וככה ליצור את הבסיס של הקובץ בצורה מהירה._
+
 את הקומפוננטה שהגדרנו בקובץ נייבא באמצעות import בזכות ההגדרות שvue-cli הגדיר לנו עבור הרצה של הפרויקט.
 
 > מאחורי הקלעים ישנו שימוש בספריית `vue-loader`, (שהתקנו דרך השימוש ב `Vue-cli`), שמאפשר לנו את ייבוא הקמפוננטות בדרך זו.
@@ -227,11 +229,17 @@ In template:
 
 ## <span id="task1" style="color:green;"> <-- משימה 1 --> </span>
 
-**המשימה הראשונה שלכם היא ליצור שתי קומפוננטות:**
+<b>
 
-1. **קומפוננטה של תצוגה מקדימה - שכרגע תכיל את הטקסט "recipe preview".**
+המשימה הראשונה שלכם היא ליצור שתי קומפוננטות:
 
-2. **קומפוננטה של עמוד ראשי - שתשתמש בקומפוננטה של תצוגה מקדימה (_כרגע נתחיל מלהכיל מופע אחד שלה_).**
+1. קומפוננטה של תצוגה מקדימה בקובץ [RecipePreview.vue](src/components/RecipePreview.vue) - שכרגע תכיל את הטקסט "recipe preview".
+
+2. קומפוננטה של עמוד ראשי בקובץ [MainPage](src/pages/MainPage.vue) - שתשתמש בקומפוננטה של תצוגה מקדימה (_כרגע נתחיל מלהכיל מופע אחד שלה_).
+
+_קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5)_
+
+</b>
 
 &nbsp;
 
@@ -302,17 +310,23 @@ Inside Parent's template:
 
 <b>
 
-במשימה זו נגדיר את כל הפרמטרים שאנחנו מצפים לקבל בקומפוננטה של תצוגה מקדימה שהם:
+במשימה זו נגדיר בקובץ [RecipePreview.vue](src/components/RecipePreview.vue) עבור הקומפוננטה של תצוגה מקדימה את כל הפרמטרים שאנחנו מצפים לקבל, שהם:
 
-- הid של המתכון - חובה
-- השם של המתכון - חובה
-- כמות הזמן שלוקח כל תהליך ההכנה - חובה
-- קישור לתמונה של המתכון - חובה
-- כמות הלייקים - לא חובה (דיפולטית יחזיר undefined)
+<div dir="ltr" style="padding-left:15%;">
+
+- id : type = Number , required
+- title : type = String, required
+- readyInMinutes : type = Number, required
+- image : type = String, required
+- aggregateLikes : type = Number, not required (default function return undefined)
+
+</div>
 
 _לצורך ההתנסות, במעבדה תרשמו את כל השדות בנפרד._
 
 _בעבודה תצטרכו גם להתייחס למידע ספציפי למשתמש כמו האם המתכון הוא favorite שלו או האם הוא צפה בו._
+
+_קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5)_
 
 </b>
 
@@ -421,6 +435,8 @@ recipes: [
 > #הערה: כאשר אתם עושים v-for לקומפוננטה, אתם צריכים לציין key
 > (במקרה הזה id)
 
+_קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5)_
+
 </b>
 
 &nbsp;
@@ -443,11 +459,13 @@ recipes: [
 
 &nbsp;
 
-## <span id="task5" style="color:green;"> <-- משימה 5 --> </span>
+## <span id="task4" style="color:green;"> <-- משימה 4 --> </span>
 
 <b>
 
 כעת עליכם להוסיף לקובץ [MainPage.vue](src/pages/MainPage.vue) את הפונקציה created שתכיל קריאה לconsole.log עם הערה לבחירתכם.
+
+_קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5)_
 
 </b>
 
@@ -495,6 +513,8 @@ this.axios
 </div>
 
 > כמו במעבדות של Node, כדי להגדיר
+
+_קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5)_
 
 </b>
 

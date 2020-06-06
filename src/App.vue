@@ -1,31 +1,13 @@
 <template>
   <div id="app">
-    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <!-- <RegisterPage/> -->
-    <ButtonCounter></ButtonCounter>
-    <DisableButton></DisableButton>
-    <MessageLine sender="Eran" message="hello everyone!!!"></MessageLine>
-    <MessagesPage />
+    Hello World!
   </div>
 </template>
 
 <script>
-// import HelloWorld from './pages/HelloWorld.vue'
-// import RegisterPage from './pages/RegisterPage'
-import MessagesPage from "./pages/MessagesPage";
-import ButtonCounter from "./components/ButtonCounter";
-import DisableButton from "./components/DisableButton";
-import MessageLine from "./components/MessageLine";
-
 export default {
   name: "App",
-  components: {
-    ButtonCounter,
-    DisableButton,
-    MessageLine,
-    MessagesPage
-  }
+  components: {}
 };
 </script>
 
