@@ -66,6 +66,13 @@ Vue-cli.
 - [App.vue](src/App.vue) - הקובץ שמכיל את הקומפוננטה הראשית של הפרויקט
 - [main.js](src/main.js) - הקובץ שיוצר את אובייקט הVue הראשי שמקשר את index.html לApp.vue
 
+<i>
+על מנת להריץ את קבצי המעבדה, יש להריץ את הפקודה:
+
+- npm run serve - על ל
+
+</i>
+
 ## **_קומפוננטה_**
 
 קומפוננטה היא אובייקט Vue עם שם שניתן לעשות בה שימוש חוזר.
@@ -405,7 +412,7 @@ v-bind:AttributeName="variable"
 
 לשם כך אתם צריכים:
 
-1. רשימת מתכונים בעמוד הראשי שלנו (נתחיל מרשימה שאנחנו ניצור ידנית)
+1. רשימת מתכונים בעמוד הראשי שלנו - [MainPage.vue](src/pages/MainPage.vue) (נתחיל מרשימה שאנחנו ניצור ידנית)
 
 <div dir="ltr" style="padding-left:15%;">
 
@@ -430,7 +437,9 @@ recipes: [
 
 </div>
 
-2. להוסיף את הdirective שלמדנו במעבדה קודמת v-for על מנת ליצור את קומפוננטת התצוגה המקדימה עבור כל מתכון ברשימה.
+2. להציג את המידע ב[RecipePreview.vue](src/components/RecipePreview.vue) מprops באיזה דרך שתבחרו
+
+3. בקובץ [MainPage.vue](src/pages/MainPage.vue) להוסיף את הdirective שלמדנו במעבדה קודמת v-for לאלמנט של הקומפוננט על מנת ליצור את קומפוננטת התצוגה המקדימה עבור כל מתכון ברשימה.
 
 > #הערה: כאשר אתם עושים v-for לקומפוננטה, אתם צריכים לציין key
 > (במקרה הזה id)
@@ -441,13 +450,13 @@ _קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#ta
 
 &nbsp;
 
-## **_created (and) beforeDestroy_**
+## **mounted (and) beforeDestroy\_**
 
 במחזור החיים של אובייקט Vue, ישנם שני eventים שמעניינים אותנו:
 
-> - **created:** מסמל את הרגע בו האובייקט נוצר ואנחנו יכולים להריץ קוד
+> - **mounted:** מסמל את הרגע בו האובייקט נוצר ונקשר לtemplate
 >   &#09;  
->   **<span style="color:green;">מתי נשתמש --> שליחת בקשה לשרת והשמת התוצאה למשתנה של האובייקט ברגע שהיא חוזרת</span>**
+>   **<span style="color:green;">מתי נשתמש --> שליחת בקשה לשרת והשמת התוצאה למשתנה של האובייקט ברגע התגובה</span>**
 
 > - **beforeDestroy:** מסמל את הרגע לפני שהאובייקט נהרס ומאפשר לנו להריץ קוד
 >   &#09;  
@@ -463,7 +472,7 @@ _קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#ta
 
 <b>
 
-כעת עליכם להוסיף לקובץ [MainPage.vue](src/pages/MainPage.vue) את הפונקציה created שתכיל קריאה לconsole.log עם הערה לבחירתכם.
+כעת עליכם להוסיף לקובץ [MainPage.vue](src/pages/MainPage.vue) את הפונקציה mounted שתכיל קריאה לconsole.log עם הערה לבחירתכם.
 
 _קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5)_
 
@@ -485,34 +494,47 @@ axios היא ספרייה שהשתמשנו בה בצד השרת כדי ליצו�
 
 המשימה שלכם כעת היא להחליף את המתכונים שהגדרנו ממקודם למתכונים רנדומלים שנקבל בעת כניסה לדף הראשי.
 
-בשביל ליישם את זה, נצטרך בפונקציה created (שייצרנו קודם) לבצע בקשה באמצעות axios לשרת שיביא לנו את המידע.
+בשביל ליישם את זה, ,תצטרכו:
 
-בעבודה 3.3 אתם תפנו לשרת שיצרתם בעבודה 3.2, אך כעת נפנה לspooncular ישירות (מה שלא יקרה ב3.3).
+- ליצור פונקציה אסינכרונית בשם updateRecipes שיוצרת בקשה באמצעות axios וכאשר התגובה חוזרת, במידה ולא הייתה שגיאה, תעדכן את השדה recipe למתכונים החדשים
+- בפונקציה mounted לקרוא לפונקציה הזאת
 
-הפנייה תיהיה הפנייה הזאת:
+_בעבודה 3.3 אתם תפנו לשרת שיצרתם בעבודה 3.2, אך כעת נפנה לspooncular ישירות (מה שלא יקרה ב3.3)._
+
+הבקשה דרך axios תראה כך:
 
 <div dir="ltr" style="padding-left:15%;">
 
 ```javascript
-this.axios
-  .get("https://api.spoonacular.com/recipes/random", {
-    params: {
-      limitLicense: true,
-      number: 3,
-      apiKey: process.env.VUE_APP_SPOONCULAR_API_KEY
+try {
+  const response = await this.axios.get(
+    "https://api.spoonacular.com/recipes/random",
+    {
+      params: {
+        limitLicense: true,
+        number: 3,
+        apiKey: process.env.VUE_APP_SPOONCULAR_API_KEY
+      }
     }
-  })
-  .then(function(response) {
-    console.log(response);
-  })
-  .catch(function(error) {
-    console.log(error);
-  });
+  );
+  console.log(response);
+  /*const recipes = response.data.recipes.map((r) => {
+    return {
+      id: r.id,
+      title: r.title,
+      readyInMinutes: r.readyInMinutes,
+      image: r.image,
+      aggregateLikes: r.aggregateLikes
+    };
+  });*/
+
+  // insert to this.recipes
+} catch (error) {
+  console.log(error);
+}
 ```
 
 </div>
-
-> כמו במעבדות של Node, כדי להגדיר
 
 _קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5)_
 

@@ -110,8 +110,8 @@ export default {
       validated: false
     };
   },
-  created() {
-    console.log("created");
+  mounted() {
+    console.log("mounted");
     this.countries.push(...countries);
   },
   methods: {
