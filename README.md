@@ -258,7 +258,9 @@ In template:
 
 1. קומפוננטה של תצוגה מקדימה בקובץ [RecipePreview.vue](src/components/RecipePreview.vue) - שכרגע תכיל את הטקסט "recipe preview".
 
-2. קומפוננטה של עמוד ראשי בקובץ [MainPage](src/pages/MainPage.vue) - שתשתמש בקומפוננטה של תצוגה מקדימה (_כרגע נתחיל מלהכיל מופע אחד שלה_).
+2. קומפוננטה של עמוד ראשי בקובץ [MainPage.vue](src/pages/MainPage.vue) - שתשתמש בקומפוננטה של תצוגה מקדימה (_כרגע נתחיל מלהכיל מופע אחד שלה_).
+
+3. לייבא את הקומפוננטה [MainPage.vue](src/pages/MainPage.vue) בקובץ [App_task.vue](src/App_task.vue)
 
 _קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5)_
 
@@ -274,7 +276,7 @@ inside Child Component logic:
 
 ```javascript
 export default {
-  name: "childComponent",
+  name: "MessageLine",
   props: {
     message: {
       type: String,

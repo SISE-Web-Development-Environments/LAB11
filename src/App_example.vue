@@ -3,9 +3,10 @@
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <!-- <RegisterPage/> -->
-    <ButtonCounter></ButtonCounter>
-    <DisableButton></DisableButton>
-    <MessageLine sender="Eran" message="hello everyone!!!"></MessageLine>
+    <ButtonCounter />
+    <ButtonCounter />
+    <DisableButton />
+    <MessageLine sender="Eran" message="hello everyone!!!" />
     <MessagesPage />
   </div>
 </template>

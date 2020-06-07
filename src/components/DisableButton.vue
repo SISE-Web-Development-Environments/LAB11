@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <ButtonCounter :disabled="flag"></ButtonCounter>
-  </div>
+  <ButtonCounter :disabled="flag" />
 </template>
 
 <script>
