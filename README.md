@@ -19,7 +19,7 @@
 > - Vue VSCode Snippets
 > - Vue Peek
 
-3. להוסיף את הקובץ `env.local` לפי הדוגמא [env.local_example](.env.local_example)
+3. להוסיף את הקובץ `env.local.` לפי הדוגמא [env.local_example.](.env.local_example)
 4. להריץ את הפקודה `npm install`
 5. לעיין ב[מסמך של צורת הכתיבה הנכונה של Vue](https://vuejs.org/v2/style-guide)
 
