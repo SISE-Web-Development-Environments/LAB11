@@ -182,6 +182,8 @@ In template:
 
 את הקומפוננטה שהגדרנו בקובץ נייבא באמצעות **import** בזכות ההגדרות שvue-cli הגדיר לנו עבור הרצה של הפרויקט.
 
+לאחר שייבאנו את הקומפוננטה, נצהיר שאנחנו משתמשים בה בתוך פרמרטר **components** בקומפוננטת האב.
+
 > מאחורי הקלעים ישנו שימוש בספריית `vue-loader`, (שהתקנו דרך השימוש ב `Vue-cli`), שמאפשר לנו את ייבוא הקמפוננטות בדרך זו.
 
 כאשר אנחנו משתמשים מתוך אובייקט Vue בקומפוננטה נוכל לאמר מבחינה היררכית שאותה קומפוננטה היא **child** של אותו אובייקט (Child Component).
@@ -198,7 +200,8 @@ In template:
 </template>
 
 <script>
-  import ButtonCounter from "./components/ButtonCounter"; // import component from the components directory
+  // import component from the components directory
+  import ButtonCounter from "./components/ButtonCounter";
 
   export default {
     name: "App",
