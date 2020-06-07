@@ -11,6 +11,7 @@
 
    - Prettier - Code formatter
    - Vetur
+   - ESLint
 
 > מומליצים בנוסף:
 
@@ -19,9 +20,9 @@
 > - Vue VSCode Snippets
 > - Vue Peek
 
-3. להוסיף את הקובץ `env.local.` לפי הדוגמא [env.local_example.](.env.local_example)
-4. להריץ את הפקודה `npm install`
-5. לעיין ב[מסמך של צורת הכתיבה הנכונה של Vue](https://vuejs.org/v2/style-guide)
+1. להוסיף את הקובץ `env.local.` לפי הדוגמא [env.local_example.](.env.local_example)
+2. להריץ את הפקודה `npm install`
+3. לעיין ב[מסמך של צורת הכתיבה הנכונה של Vue](https://vuejs.org/v2/style-guide)
 
 ## מבוא
 
@@ -66,6 +67,7 @@ Vue-cli.
 - [index.html](public/index.html) - הקובץ html הראשי שכולל את האלמנט שיהיה הtemplate של האובייקט Vue הראשי
 - [App.vue](src/App_example.vue) - הקובץ שמכיל את הקומפוננטה הראשית של הפרויקט
 - [main.js](src/main_example.js) - הקובץ שיוצר את אובייקט הVue הראשי שמקשר את index.html לApp.vue
+- [assets](src/assets/logo.png) - תיקייה שבה נכיל עזרים סטטים כמו תמונות ורשימות סטטיות (כמו אוסף המדינות)
 
 <i>
 על מנת להריץ את קבצי המעבדה, יש להריץ את הפקודה:
@@ -340,9 +342,20 @@ Inside Parent's template:
 
 </div>
 
-_לצורך ההתנסות, במעבדה תרשמו את כל השדות בנפרד._
+בנוסף יש:
 
-_בעבודה תצטרכו גם להתייחס למידע ספציפי למשתמש כמו האם המתכון הוא favorite שלו או האם הוא צפה בו._
+- ליצור תצוגה של המידע ב[RecipePreview.vue](src/components/RecipePreview.vue) מprops באיזה דרך שתבחרו
+- להעביר בשימוש של הקופוננטה ב [MainPage.vue](src/pages/MainPage.vue) ערכים מסוימים (רק לבינתיים)
+
+<i>
+
+טיפים והערות:
+
+- במידע ואנחנו רוצים להעביר מספר אנחנו צריכים לרשום לפני השדה נקודותיים\_
+- לצורך ההתנסות, במעבדה תרשמו את כל השדות בנפרד.
+- בעבודה תצטרכו גם להתייחס למידע ספציפי למשתמש כמו האם המתכון הוא favorite שלו או האם הוא צפה בו.
+
+</i>
 
 _קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5)_
 
@@ -448,9 +461,7 @@ recipes: [
 
 </div>
 
-2. להציג את המידע ב[RecipePreview.vue](src/components/RecipePreview.vue) מprops באיזה דרך שתבחרו
-
-3. בקובץ [MainPage.vue](src/pages/MainPage.vue) להוסיף את הdirective שלמדנו במעבדה קודמת v-for לאלמנט של הקומפוננט על מנת ליצור את קומפוננטת התצוגה המקדימה עבור כל מתכון ברשימה.
+2. בקובץ [MainPage.vue](src/pages/MainPage.vue) להוסיף את הdirective שלמדנו במעבדה קודמת v-for לאלמנט של הקומפוננט על מנת ליצור את קומפוננטת התצוגה המקדימה עבור כל מתכון ברשימה.
 
 > #הערה: כאשר אתם עושים v-for לקומפוננטה, אתם צריכים לציין key
 > (במקרה הזה id)

@@ -5,7 +5,8 @@
   "scripts": {
     "serve_example": "vue-cli-service serve src/main_example.js",
     "serve_task": "vue-cli-service serve src/main_task.js",
-    "serve_solution": "vue-cli-service serve src/main_solution.js"
+    "serve_solution": "vue-cli-service serve src/main_solution.js",
+    "build_example": "vue-cli-service build src/main_example.js"
   },
   "dependencies": {
     "axios": "^0.19.2",
