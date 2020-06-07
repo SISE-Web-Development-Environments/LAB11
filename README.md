@@ -30,7 +30,7 @@
 
 לעומת מעבדה קודמת שבה דיברנו על עמוד הרשמה, היום נדבר על **העמוד הראשי** שבו נציג מתכונים רנדומלים שנקבל מהשרת.
 
-הקבצים שאיתם תעבדו במעבדה הם [MainPage.vue](src/pages/MainPage.vue) ו [RecipePreview.vue](src/components/RecipePreview.vue) עבור העמוד הראשי והתצוגה המקדימה (בהתאמה).
+הקבצים שאיתם תעבדו במעבדה הם [MainPage.vue](src/pages/MainPage.vue) עבור העמוד הראשי, ו [RecipePreview.vue](src/components/RecipePreview.vue) עבור התצוגה המקדימה.
 
 ## צורת הייבוא של Vue
 
